@@ -15,7 +15,7 @@
   </tr>
     {{ $events := newScratch }}
 
-    {{ $max := 200 }}
+    {{ $max := (mul (sub 20 8) 60) }}
 
     {{ range $index, $raum := $.Site.Data.räume }}
       {{ $last := (time "2016-05-28T08:00:00.00+01:00") }}
@@ -42,12 +42,12 @@
         {{ $t2 := add $h2 $last.Minute }}
 
         <!-- append to scratch set and iterate over that -->
-        {{ $events.SetInMap $index (string (mul $eventid 2)) (partial "timetable_fill.html" $colspanbefore) }}
+        {{ $events.SetInMap $index (string $colspanbefore) (partial "timetable_fill.html" $colspanbefore) }}
         {{ $arg := newScratch }}
         {{ $arg.SetInMap "d" "raum" $raum }}
         {{ $arg.SetInMap "d" "size" (sub $t1 $t2) }}
         {{ $arg.SetInMap "d" "event" $event }}
-        {{ $events.SetInMap $index (string (add (mul $eventid 2) 1)) (partial "timetable_event.html" ($arg.Get "d")) }}
+        {{ $events.SetInMap $index (string (sub $t1 $t2)) (partial "timetable_event.html" ($arg.Get "d")) }}
       {{ end }}
     {{ end }}
 
@@ -57,7 +57,7 @@
         {{ $arg := newScratch }}
         {{ $arg.SetInMap "d" "hour" $hour }}
         {{ $arg.SetInMap "d" "min" (mul $min 15) }}
-        {{ $events.SetInMap "side" (string $j) (partial "timetable_min.html" ($arg.Get "d")) }}
+        {{ $events.SetInMap "side" (string (mul $j 15)) (partial "timetable_min.html" ($arg.Get "d")) }}
         {{ $j = add $j 1 }}
       {{ end }}
     {{ end }}
@@ -67,12 +67,7 @@
       {{ index $evside (string $i) }}
       {{ range $index, $raum := $.Site.Data.räume }}
         {{ $evraum := $events.Get $index }}
-        {{ $data := index $evraum (string $i) }}
-        {{ if eq $data nil }}
-          <td rowspan="0"></td>
-        {{ else }}
-          {{ $data }}
-        {{ end }}
+        {{ index $evraum (string $i) }}
       {{ end }}
     </tr>
   {{ end }}

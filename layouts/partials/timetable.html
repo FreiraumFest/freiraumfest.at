@@ -2,21 +2,44 @@
   <h1>Veranstaltungen</h1>
 </center>
 
-<table>
+<table class="events">
   <!-- set colspan accordingly -->
   <tr>
     {{ range $index, $raum := $.Site.Data.räume }}
       <td>{{ $raum.name }}</td>
     {{ end }}
   </tr>
-  {{ range $hour := (seq 24) }}
-    {{ range $minute := (seq 0 59) }}
-      <!-- generate entry every 15 min, maybe iterate over multiples of 15 -->
-      <tr>
-        {{ range $index, $raum := $.Site.Data.räume }}
-          <td>{{ $raum.name }} {{ $hour }} {{ $minute }}</td>
-        {{ end }}
-      </tr>
+  <tr>
+    <td colspan="100" class="event">Eröffnung</td>
+  </tr>
+  <!-- todo each td for each raum is seperate -->
+  <tr>
+    {{ range $index, $raum := $.Site.Data.räume }}
+      {{ $last := (time "2016-05-28T08:00:00.00+01:00") }}
+      {{ range $event := $raum.events }}
+        {{ $from := (time $event.from) }}
+        {{ $to := (time $event.to) }}
+
+        {{ $after := $from }}
+        {{ $diffh := sub $after.Hour $last.Hour }}
+        {{ $diffm := sub $after.Minute $last.Minute }}
+        {{ $diffm2 := mul $diffh 60 }}
+
+        {{ $colspanbefore := add $diffm $diffm2 }}
+
+        {{ $last = $from }}
+        {{ $after = $to }}
+
+        {{ $diffh := sub $after.Hour $last.Hour }}
+        {{ $diffm := sub $after.Minute $last.Minute }}
+        {{ $diffm2 = mul $diffh 60 }}
+
+        <td colspan="{{ $colspanbefore }}" style="display: none"></td>
+        <td colspan="{{ add $diffm $diffm2 }}" class="event">{{ $event.name }}</td>
+      {{ end }}
     {{ end }}
-  {{ end }}
+  </tr>
+  <tr>
+    <td colspan="100" class="event">Abschluss</td>
+  </tr>
 </table>

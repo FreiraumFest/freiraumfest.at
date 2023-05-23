@@ -3,10 +3,14 @@ realraum:
   beschreibung: |
     Test
   events:
-    "11:30-12:00": test
+    - name: test
+      from: 2016-05-28T10:20:00.00+01:00
+      to: 2016-05-28T11:40:00.00+01:00
 spektral:
   name: Spektral
   beschreibung: |
     Test
   events:
-    "11:20-13:00": test
+    - name: test
+      from: 2016-05-28T10:30:00.00+01:00
+      to: 2016-05-28T11:30:00.00+01:00

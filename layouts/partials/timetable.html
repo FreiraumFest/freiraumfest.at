@@ -4,42 +4,79 @@
 
 <table class="events">
   <!-- set colspan accordingly -->
+  <!--<tr>
+    <td colspan="100" class="event">Eröffnung</td>
+  </tr>!-->
   <tr>
+    <td class="raum"></td>
     {{ range $index, $raum := $.Site.Data.räume }}
-      <td>{{ $raum.name }}</td>
+      <td class="raum">{{ $raum.name }}</td>
     {{ end }}
   </tr>
-  <tr>
-    <td colspan="100" class="event">Eröffnung</td>
-  </tr>
-  <!-- todo each td for each raum is seperate -->
-  <tr>
+    {{ $events := newScratch }}
+
+    {{ $max := 200 }}
+
     {{ range $index, $raum := $.Site.Data.räume }}
       {{ $last := (time "2016-05-28T08:00:00.00+01:00") }}
-      {{ range $event := $raum.events }}
+
+      {{ range $eventid, $event := $raum.events }}
         {{ $from := (time $event.from) }}
         {{ $to := (time $event.to) }}
 
         {{ $after := $from }}
-        {{ $diffh := sub $after.Hour $last.Hour }}
-        {{ $diffm := sub $after.Minute $last.Minute }}
-        {{ $diffm2 := mul $diffh 60 }}
 
-        {{ $colspanbefore := add $diffm $diffm2 }}
+        {{ $h1 := mul $after.Hour 60 }}
+        {{ $h2 := mul $last.Hour 60 }}
+        {{ $t1 := add $h1 $after.Minute }}
+        {{ $t2 := add $h2 $last.Minute }}
+
+        {{ $colspanbefore := sub $t1 $t2 }}
 
         {{ $last = $from }}
         {{ $after = $to }}
 
-        {{ $diffh := sub $after.Hour $last.Hour }}
-        {{ $diffm := sub $after.Minute $last.Minute }}
-        {{ $diffm2 = mul $diffh 60 }}
+        {{ $h1 := mul $after.Hour 60 }}
+        {{ $h2 := mul $last.Hour 60 }}
+        {{ $t1 := add $h1 $after.Minute }}
+        {{ $t2 := add $h2 $last.Minute }}
 
-        <td colspan="{{ $colspanbefore }}" style="display: none"></td>
-        <td colspan="{{ add $diffm $diffm2 }}" class="event">{{ $event.name }}</td>
+        <!-- append to scratch set and iterate over that -->
+        {{ $events.SetInMap $index (string (mul $eventid 2)) (partial "timetable_fill.html" $colspanbefore) }}
+        {{ $arg := newScratch }}
+        {{ $arg.SetInMap "d" "raum" $raum }}
+        {{ $arg.SetInMap "d" "size" (sub $t1 $t2) }}
+        {{ $arg.SetInMap "d" "event" $event }}
+        {{ $events.SetInMap $index (string (add (mul $eventid 2) 1)) (partial "timetable_event.html" ($arg.Get "d")) }}
       {{ end }}
     {{ end }}
-  </tr>
-  <tr>
+
+    {{ $j := 0 }}
+    {{ range $hour := seq 8 20 }}
+      {{ range $min := seq 0 3 }}
+        {{ $arg := newScratch }}
+        {{ $arg.SetInMap "d" "hour" $hour }}
+        {{ $arg.SetInMap "d" "min" (mul $min 15) }}
+        {{ $events.SetInMap "side" (string $j) (partial "timetable_min.html" ($arg.Get "d")) }}
+        {{ $j = add $j 1 }}
+      {{ end }}
+    {{ end }}
+  {{ range $i := seq 0 $max }}
+    <tr>
+      {{ $evside := $events.Get "side" }}
+      {{ index $evside (string $i) }}
+      {{ range $index, $raum := $.Site.Data.räume }}
+        {{ $evraum := $events.Get $index }}
+        {{ $data := index $evraum (string $i) }}
+        {{ if eq $data nil }}
+          <td rowspan="0"></td>
+        {{ else }}
+          {{ $data }}
+        {{ end }}
+      {{ end }}
+    </tr>
+  {{ end }}
+  <!--<tr>
     <td colspan="100" class="event">Abschluss</td>
-  </tr>
+  </tr>!-->
 </table>

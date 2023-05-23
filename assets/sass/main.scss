@@ -1,6 +1,16 @@
+body {
+  font-family: sans-serif;
+}
+
 .events {
   .event {
     background: blue;
+    color: white;
     border-radius: 6px;
+    margin: 1em;
+  }
+
+  .raum {
+    text-align: center;
   }
 }

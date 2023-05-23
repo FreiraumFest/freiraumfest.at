@@ -1,0 +1,11 @@
+how is the timetable generated?
+
+minute difference between last and next (from) element is calculated
+  new timetable_fill is created, rowspan=diff
+minute difference between from and to is calculated
+  new timetable_event element is created, rowspan=diff
+
+both are appended to list indexed by raum id then incrementing list
+
+later for each row for each raum id everything is printed
+-> conversion is done so we can have the table in the same

@@ -50,11 +50,11 @@
 
     {{ $j := 0 }}
     {{ range $hour := seq 8 20 }}
-      {{ range $min := seq 0 3 }}
+      {{ range $min := seq 0 1 }}
         {{ $arg := newScratch }}
         {{ $arg.SetInMap "d" "hour" $hour }}
-        {{ $arg.SetInMap "d" "min" (mul $min 15) }}
-        {{ $events.SetInMap "side" (string (mul $j 15)) (partial "timetable_min.html" ($arg.Get "d")) }}
+        {{ $arg.SetInMap "d" "min" (mul $min 30) }}
+        {{ $events.SetInMap "side" (string (mul $j 30)) (partial "timetable_min.html" ($arg.Get "d")) }}
         {{ $j = add $j 1 }}
       {{ end }}
     {{ end }}

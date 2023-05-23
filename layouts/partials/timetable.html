@@ -2,11 +2,8 @@
   <h1>Veranstaltungen</h1>
 </center>
 
+<div class="event">Eröffnung</div>
 <table class="events">
-  <!-- set colspan accordingly -->
-  <!--<tr>
-    <td colspan="100" class="event">Eröffnung</td>
-  </tr>!-->
   <tr>
     <td class="raum"></td>
     {{ range $index, $raum := $.Site.Data.räume }}
@@ -71,7 +68,5 @@
       {{ end }}
     </tr>
   {{ end }}
-  <!--<tr>
-    <td colspan="100" class="event">Abschluss</td>
-  </tr>!-->
 </table>
+<div class="event">Abschluss</div>

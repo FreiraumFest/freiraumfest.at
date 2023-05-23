@@ -2,11 +2,14 @@ body {
   font-family: sans-serif;
 }
 
+.event {
+  background: blue;
+  color: white;
+  border-radius: 6px;
+}
+
 .events {
   .event {
-    background: blue;
-    color: white;
-    border-radius: 6px;
     margin: 1em;
   }
 

@@ -1,1 +1,1 @@
-<td rowspan="15">{{ .hour }}:{{ .min }}</td>
+<td rowspan="15">{{ if lt .hour 10 }}0{{ end }}{{ .hour }}:{{ if lt .min 10 }}0{{ end }}{{ .min }}</td>

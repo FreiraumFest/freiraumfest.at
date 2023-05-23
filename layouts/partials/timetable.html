@@ -1,0 +1,22 @@
+<center>
+  <h1>Veranstaltungen</h1>
+</center>
+
+<table>
+  <!-- set colspan accordingly -->
+  <tr>
+    {{ range $index, $raum := $.Site.Data.räume }}
+      <td>{{ $raum.name }}</td>
+    {{ end }}
+  </tr>
+  {{ range $hour := (seq 24) }}
+    {{ range $minute := (seq 0 59) }}
+      <!-- generate entry every 15 min, maybe iterate over multiples of 15 -->
+      <tr>
+        {{ range $index, $raum := $.Site.Data.räume }}
+          <td>{{ $raum.name }} {{ $hour }} {{ $minute }}</td>
+        {{ end }}
+      </tr>
+    {{ end }}
+  {{ end }}
+</table>

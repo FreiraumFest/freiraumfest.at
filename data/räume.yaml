@@ -4,3 +4,9 @@ realraum:
     Test
   events:
     "11:30-12:00": test
+spektral:
+  name: Spektral
+  beschreibung: |
+    Test
+  events:
+    "11:20-13:00": test

@@ -1,3 +1,9 @@
-{{ range $index, $raum := $.Site.Data.räume }}
-  {{ partial "raum.html" $raum }}
-{{ end }}
+<center id="raume">
+  <h1 class="big">Räume</h1>
+</center>
+
+<div class="space-list">
+  {{ range $index, $raum := $.Site.Data.räume }}
+    {{ partial "raum.html" $raum }}
+  {{ end }}
+</div>

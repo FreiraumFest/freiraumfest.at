@@ -2,6 +2,7 @@
 <html>
 <head>
  <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
  <title>{{ .Page.Title }}</title>
  {{ $sass := resources.Get "sass/main.scss" }}
  {{ $style := $sass | resources.ToCSS | resources.Fingerprint }}
@@ -9,7 +10,31 @@
 </head>
 
 <body>
- {{ block "main" . }}
- {{ end }}
+  <main aria-role="main">
+    <header style="display: flex; justify-content: space-between;" class="homepage-header">
+      <h2>Freiraum Fest</h2>
+      <div class="big-nav">
+        <ul class="nav">
+          {{ block "nav" . }}
+          {{ end }}
+        </ul>
+      </div>
+      <div class="small-nav">
+        <ul class="nav">
+          {{ block "nav" . }}
+          {{ end }}
+        </ul>
+      </div>
+    </header>
+    <div class="homepage-content">
+      {{ block "main" . }}
+      {{ end }}
+    </div>
+    <div>
+      {{ range first 10 .Site.RegularPages }}
+          {{ .Render "summary" }}
+      {{ end }}
+    </div>
+  </main>
 </body>
 </html>

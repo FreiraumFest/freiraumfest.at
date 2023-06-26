@@ -23,7 +23,7 @@ traumwerk:
       from: 2016-05-28T10:40:00.00+01:00
       to: 2016-05-28T12:00:00.00+01:00
 schubertnest:
-    name: Schubertnest
+  name: Schubertnest
   beschreibung: |
     Test
   events:
@@ -31,7 +31,7 @@ schubertnest:
       from: 2016-05-28T12:30:00.00+01:00
       to: 2016-05-28T14:00:00.00+01:00
 kometin:
-    name: Kometin
+  name: Kometin
   beschreibung: |
     Test
   events:
@@ -39,7 +39,7 @@ kometin:
       from: 2016-05-28T12:30:00.00+01:00
       to: 2016-05-28T13:30:00.00+01:00
 schwarze_raupe:
-    name: Schwarze Raupe
+  name: Schwarze Raupe
   beschreibung: |
     Test
   events:

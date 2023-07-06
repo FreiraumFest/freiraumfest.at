@@ -1,7 +1,7 @@
 realraum:
   name: Realraum
   beschreibung: |
-    Test
+    <a href="https://r3.at">Brockmanngasse 15, 8010 Graz</a>
   events:
     - name: test
       from: 2016-05-28T10:20:00.00+01:00
@@ -9,7 +9,7 @@ realraum:
 spektral:
   name: Spektral
   beschreibung: |
-    Test
+    <a href="https://spektral.at/">Lendkai 45, 8020 Graz</a>
   events:
     - name: test
       from: 2016-05-28T10:30:00.00+01:00
@@ -17,7 +17,7 @@ spektral:
 traumwerk:
   name: Traumwerk
   beschreibung: |
-    Test
+    <a href="http://traumwerk.in/">Lendkai 45, 8020 Graz</a>
   events:
     - name: test
       from: 2016-05-28T10:40:00.00+01:00
@@ -25,7 +25,7 @@ traumwerk:
 schubertnest:
   name: Schubertnest
   beschreibung: |
-    Test
+    <a href="https://schubertnest.at/">Elisabethstraße 27, 8010 Graz</a>
   events:
     - name: test
       from: 2016-05-28T12:30:00.00+01:00
@@ -33,7 +33,7 @@ schubertnest:
 kometin:
   name: Kometin
   beschreibung: |
-    Test
+    <a href="https://kometin.at/">Rechbauerstraße 19a, 8010 Graz</a>
   events:
     - name: test
       from: 2016-05-28T12:30:00.00+01:00
@@ -41,7 +41,7 @@ kometin:
 schwarze_raupe:
   name: Schwarze Raupe
   beschreibung: |
-    Test
+    <a href="https://schwarzeraupe.noblogs.org/">Steinfeldgasse 2, 8020 Graz</a>
   events:
     - name: test
       from: 2016-05-28T15:30:00.00+01:00

@@ -1,0 +1,9 @@
+<center id="raume">
+  <h1 class="big">Räume</h1>
+</center>
+
+<div class="space-list">
+  {{ range $index, $raum := $.Site.Data.räume }}
+    {{ partial "raum_overview.html" $raum }}
+  {{ end }}
+</div>

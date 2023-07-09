@@ -1,9 +1,9 @@
 <center id="raume">
-  <h1 class="big">Räume</h1>
+  <h1 class="big">Übersicht der teilnehmenden Freiräume</h1>
 </center>
 
 <div class="space-list">
   {{ range $index, $raum := $.Site.Data.räume }}
-    {{ partial "raum.html" $raum }}
+    {{ partial "raum_detail.html" $raum }}
   {{ end }}
 </div>

@@ -15,9 +15,13 @@
   <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
   <!-- {{ .Content }} -->
   <div class="section">
-    {{ partial "räume.html" . }}
+    {{ partial "räume_overview.html" . }}
   </div>
   <div class="section">
     {{ partial "timetable.html" . }}
   </div>
+  <div class="section">
+    {{ partial "räume_detail.html" . }}
+  </div>
+  
 {{ end }}

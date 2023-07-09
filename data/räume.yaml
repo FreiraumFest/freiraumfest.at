@@ -1,5 +1,9 @@
 realraum:
   name: Realraum
+  motto_kurz: Hackerspace, Makerspace, DIYBioLab, Chaostreff
+  web_adresse: https://r3.at
+  post_adresse: Brockmanngasse 15, 8010 Graz
+  contact: 
   beschreibung: |
     <a href="https://r3.at">Brockmanngasse 15, 8010 Graz</a>
   events:
@@ -8,6 +12,10 @@ realraum:
       to: 2016-05-28T11:40:00.00+01:00
 spektral:
   name: Spektral
+  motto_kurz: Freiraum-Projekt und Open Space
+  web_adresse: https://spektral.at/
+  post_adresse: Lendkai 45, 8020 Graz
+  contact: 
   beschreibung: |
     <a href="https://spektral.at/">Lendkai 45, 8020 Graz</a>
   events:
@@ -16,6 +24,10 @@ spektral:
       to: 2016-05-28T11:30:00.00+01:00
 traumwerk:
   name: Traumwerk
+  motto_kurz: Offene Gemeinschafts-Werkstatt
+  web_adresse: http://traumwerk.in/
+  post_adresse: Lendkai 45, 8020 Graz
+  contact: 
   beschreibung: |
     <a href="http://traumwerk.in/">Lendkai 45, 8020 Graz</a>
   events:
@@ -24,6 +36,10 @@ traumwerk:
       to: 2016-05-28T12:00:00.00+01:00
 schubertnest:
   name: Schubertnest
+  motto_kurz: Shared Office & Veranstaltungsraum, Infrastrukturplattform
+  web_adresse: https://schubertnest.at/
+  post_adresse: Elisabethstraße 27, 8010 Graz
+  contact: 
   beschreibung: |
     <a href="https://schubertnest.at/">Elisabethstraße 27, 8010 Graz</a>
   events:
@@ -32,6 +48,10 @@ schubertnest:
       to: 2016-05-28T14:00:00.00+01:00
 kometin:
   name: Kometin
+  motto_kurz: Raum zum Probieren und Transformieren
+  web_adresse: https://kometin.at/
+  post_adresse: Rechbauerstraße 19a, 8010 Graz
+  contact: 
   beschreibung: |
     <a href="https://kometin.at/">Rechbauerstraße 19a, 8010 Graz</a>
   events:
@@ -40,6 +60,10 @@ kometin:
       to: 2016-05-28T13:30:00.00+01:00
 schwarze_raupe:
   name: Schwarze Raupe
+  motto_kurz: Raum zum Diskutieren, Lesen, Lernen und Abhängen
+  web_adresse: https://schwarzeraupe.noblogs.org/
+  post_adresse: Steinfeldgasse 2, 8020 Graz
+  contact: 
   beschreibung: |
     <a href="https://schwarzeraupe.noblogs.org/">Steinfeldgasse 2, 8020 Graz</a>
   events:
